@@ -1,0 +1,807 @@
+:root {
+  /* farben welche häufig verwendet wurden als variablen */
+  --color-blue-whale: #0b243f;
+  --color-clay-gray: #7f90b0;
+  --color-astolfo-blue: #635bff;
+}
+
+/* Classes for the size of the icons of Google Icons */
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.material-symbols-outlined.md-18 {
+  font-size: 18px;
+}
+.material-symbols-outlined.md-24 {
+  font-size: 24px;
+}
+.material-symbols-outlined.md-36 {
+  font-size: 36px;
+}
+.material-symbols-outlined.md-48 {
+  font-size: 48px;
+}
+
+/* style der buttons auf der seite, bei welches es sich eigentlich um einen a-tag handelt */
+.a-button {
+  display: flex;
+  flex: none;
+  align-items: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 18px;
+  height: 18px;
+  font-weight: 500;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 30px;
+}
+
+.a-button:hover {
+  opacity: 0.8;
+}
+
+/* classe block, welche für text umbrüche verwendet wird */
+.block {
+  display: block;
+}
+
+/* -------- */
+
+body {
+  background-image: url(../images/blob-scatter-haikei.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* -------- */
+
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 9940;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Fixiert den container des headers in der mitte mit einer maximalen länge von 1280px und sortiert die nav bar auf diese länge */
+.header__container {
+  display: flex;
+  flex: none;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  max-width: 1280px;
+}
+
+/* höhe des logos */
+.header--logo {
+  height: 36px;
+}
+
+.header__navigation__list {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.header__navigation__list--element {
+  list-style: none;
+}
+
+.header__navigation--item {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 22px;
+  margin-left: 22px;
+  color: white;
+}
+
+.header__navigation--item:hover {
+  opacity: 0.8;
+}
+
+/* sortiert die items der nav bar */
+.header--wrapper {
+  display: flex;
+}
+
+.header--link {
+  color: white;
+  background-color: hsl(0, 0%, 100%, 0.2);
+}
+
+.header--link:last-of-type {
+  display: none;
+}
+
+.header--link--icon {
+  margin-left: 8px;
+}
+
+/* ab 107ßpx screen width wird das Bürger menu angezeigt */
+@media only screen and (max-width: 1070px) {
+  .header__navigation {
+    display: none;
+  }
+
+  .header--link:last-of-type {
+    margin-left: 22px;
+    display: block;
+  }
+}
+
+/* ab 550px wird der sign in button weg gemacht */
+@media only screen and (max-width: 550px) {
+  .header--link:first-of-type {
+    display: none;
+  }
+
+  .header--link:last-of-type {
+    margin-left: 22px;
+    display: block;
+  }
+}
+
+/* overlay */
+/* das overlay ist standart mäßig auf 0 width und wird beim clicken vom javascript auf 100% width gestellt */
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+/* anordnung des contents des overlays */
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.overlay-content a {
+  font-family: "Hind Madurai", sans-serif;
+  /* alle clamp funktionen legen ein 1. min wert, einen zweiten preferierten wert und einen 3. max wert für schrift an */
+  font-size: clamp(2rem, 2.5vw, 6rem);
+  margin-bottom: 30px;
+  white-space: nowrap;
+}
+
+.closebtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 36px;
+  cursor: pointer;
+  color: white;
+}
+/*------landingpage-------*/
+.landingpage__container {
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 16px;
+  padding-left: 16px;
+  padding-top: 110px;
+  padding-bottom: 200px;
+  position: relative;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landingpage__container--wrapper {
+  display: flex;
+}
+
+.landingpage--heading {
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: clamp(3.4rem, 7.6vw, 5rem);
+  text-transform: uppercase;
+  color: var(--color-blue-whale);
+}
+
+.landingpage--slogan {
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: clamp(1rem, 1.2vw, 4rem);
+  max-width: 40ch;
+  color: var(--color-clay-gray);
+}
+
+.landingpage--link:first-of-type {
+  background-color: var(--color-blue-whale);
+  color: white;
+}
+
+.landingpage--link {
+  font-family: "Hind Vadodara", sans-serif;
+  margin-right: 22px;
+  color: var(--color-blue-whale);
+}
+
+.landingpage--link--icon {
+  margin-left: 8px;
+  font-weight: 600 !important;
+}
+
+/* style für das bild mit der taube */
+.landingpage--graphic {
+  max-width: 800px;
+  width: 48vw;
+  max-height: 1000px;
+}
+
+/* die ecke mit dem gradient wird gedreht und nach obengezogen. der gradient verlauf ist ein svg welches als hintergrund eingebunden wird */
+.landingpage--deco {
+  background-image: url(../images/gradientbackground-01.svg);
+  height: 46%;
+  position: absolute;
+  top: 0;
+  transform-origin: -60px 100%;
+  width: 100%;
+  z-index: 1;
+  transform: skewY(-6deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}
+
+@media only screen and (max-width: 800px) {
+  .landingpage__container--banner {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .landingpage--heading {
+    font-size: clamp(3.4rem, 14vw, 10rem);
+  }
+
+  .landingpage--slogan {
+    font-size: clamp(1rem, 3.1vw, 4rem);
+    margin-bottom: 30px;
+  }
+  .landingpage--graphic {
+    display: none;
+  }
+}
+
+/*------customers-------*/
+/* an ordnung der logos als grid */
+.showcase-customers__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-row-gap: 90px;
+  padding-right: 14vw;
+  padding-left: 14vw;
+  padding-bottom: 100px;
+}
+
+.showcase-customers__container--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase--logo {
+  width: 9.8vw;
+  min-width: 108px;
+}
+
+@media only screen and (max-width: 1070px) {
+  .showcase-customers__container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+  }
+}
+
+/* fast scroll */
+#fast-scroll {
+  z-index: 9999;
+  background-color: white;
+  overflow: hidden;
+  height: 77px;
+}
+
+.sticky {
+    /*  diese klasse wird vom javascript auf die nav zweite nav bar auf der seite geamacht um sie sticky zu machen*/
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.07);
+}
+
+.sticky + #about {
+  padding-top: 77px;
+}
+
+.fast-scroll--wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 14vw;
+  padding-right: 14vw;
+}
+
+.fast-scroll--item {
+  font-family: "Hind Vadodara", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: var(--color-blue-whale);
+}
+
+.fast-scroll--item:hover {
+  opacity: 0.8;
+}
+
+/* about */
+.about__container {
+  padding-top: 16px;
+  padding-bottom: 100px;
+  border-radius: 16px;
+  height: 100%;
+  margin-left: 16px;
+  margin-right: 16px;
+  background: #040d22;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1470px;
+}
+
+.about__container--wrapper {
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.about__container--container {
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+/*  um den text mit farbverlauf zu machen wird der text als maske für den hintergrund benutzt */
+.about--heading {
+  max-width: 25ch;
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: clamp(3rem, 3.6vw, 4.5rem);
+  text-transform: uppercase;
+  color: white;
+  background: rgb(34, 193, 195);
+  background: -moz-linear-gradient(-70deg, #a2facf 0%, #64acff 100%);
+  background: -webkit-linear-gradient(-70deg, #a2facf 0%, #64acff 100%);
+  background: linear-gradient(-70deg, #a2facf 0%, #64acff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+.about--text--wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+}
+
+.about--text--wrapper:last-of-type {
+  margin-right: 0;
+}
+
+.about--text {
+  text-align: justify;
+  font-family: "Hind Vadodara", sans-serif;
+  line-height: 1.5;
+  letter-spacing: 1.3;
+  font-weight: 200;
+  font-size: clamp(1.4rem, 0.3vw, 2.5rem);
+  max-width: 55ch;
+  color: var(--color-clay-gray);
+  margin-bottom: 38px;
+}
+
+.about--text:first-of-type {
+  margin-right: 24px;
+}
+
+/* wieder um einen link als button anzeigen zu lassen */
+.about--button {
+  display: flex;
+  flex: none;
+  align-items: center;
+  text-decoration: none;
+  font-size: 18px;
+  height: 18px;
+  font-family: "Hind Vadodara", sans-serif;
+  font-weight: 500;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 30px;
+  background-color: var(--color-astolfo-blue);
+  color: white;
+  width: fit-content;
+}
+
+.about-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 300px);
+  background-color: #040d22;
+  grid-gap: 16px;
+}
+
+.about-gallery div {
+  z-index: 1;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.about-gallery div:hover {
+  transform: scale(1.05);
+}
+
+#g-item1 {
+  border-top-left-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#g-item2 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#g-item3 {
+  border-top-right-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#g-item4 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 16px;
+}
+
+#g-item5 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#g-item6 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom-right-radius: 16px;
+}
+
+@media only screen and (max-width: 1460px) {
+  .about__container {
+    padding-top: 16px;
+    padding-bottom: 100px;
+    border-radius: 0;
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    background: #040d22;
+  }
+
+  #g-item1,
+  #g-item3,
+  #g-item4,
+  #g-item6 {
+    border-radius: 0;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .about__container--container {
+    display: flex;
+    align-items: center;
+  }
+
+  .about--text--wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .about--text:first-of-type {
+    margin-right: 0px;
+  }
+
+  .about-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 300px);
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .about__container {
+    padding-bottom: 0;
+  }
+
+  /* bei zu kleinen Geräten wird die gallerie weg gemmacht, damit nicht so viel gescrollt werden muss */
+  .about-gallery {
+    display: none;
+  }
+}
+
+/* faq */
+.faq__container {
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* wieder eine mehrfarbige schrift art */
+.faq--heading {
+  margin-bottom: 90px;
+  margin-top: 110px;
+  text-align: center;
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: clamp(2.5rem, 3.6vw, 4.5rem);
+  text-transform: uppercase;
+  color: white;
+  background: rgb(34, 193, 195);
+  background: -moz-linear-gradient(-70deg, #db469f 0%, #2188ff 100%);
+  background: -webkit-linear-gradient(-70deg, #db469f 0%, #2188ff 100%);
+  background: linear-gradient(-70deg, #db469f 0%, #2188ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faq__container--wrapper {
+  margin-left: 16px;
+  margin-right: 16px;
+  max-width: 620px;
+  width: calc(100% - 16px);
+}
+
+.faq--details {
+  border-bottom: 1px solid var(--color-clay-gray);
+  margin-bottom: 38px;
+}
+
+.faq-question {
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: clamp(1.4rem, 0.3vw, 2.5rem);
+  font-weight: 600;
+  color: var(--color-blue-whale);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq--awnser {
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: clamp(1.4rem, 0.3vw, 2.5rem);
+  font-weight: 200;
+  color: var(--color-clay-gray);
+  margin-bottom: 38px;
+}
+
+.faq--rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating--text {
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: clamp(1.4rem, 0.3vw, 2.5rem);
+  font-weight: 200;
+  color: var(--color-clay-gray);
+}
+
+.rating--icon {
+  color: var(--color-clay-gray);
+  margin-left: 8px;
+}
+
+.rating--icon:hover {
+  color: var(--color-blue-whale);
+}
+
+/* calculator */
+#calculator {
+  position: relative;
+  background-color: #f2f2f2;
+}
+
+.calculator__container {
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  z-index: 9998;
+  position: relative;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.calculator--heading {
+  padding-top: 110px;
+  text-align: center;
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: clamp(2.5rem, 3.6vw, 4.5rem);
+  text-transform: uppercase;
+  background: rgb(34, 193, 195);
+  background: -moz-linear-gradient(70deg, #ff7170 0%, #ffe57f 100%);
+  background: -webkit-linear-gradient(70deg, #ff7170 0%, #ffe57f 100%);
+  background: linear-gradient(70deg, #ff7170 0%, #ffe57f 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0;
+}
+
+.calculator__container--wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 68px;
+  padding-bottom: 44px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calc--desc {
+  font-family: "Hind Vadodara", sans-serif;
+  color: var(--color-blue-whale);
+}
+
+/* der drop down pfeil der select inputs wird ausgebländet und neu als hintergrundsbild eingebunden und dann richtig positioniert */
+.calculator--select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url(../images/keyboard_arrow_down_FILL0_wght500_GRAD0_opsz48.svg);
+  background-position: right 4px center;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  font-size: 1.2rem;
+  font-family: "Hind Vadodara", sans-serif;
+  border: none;
+  border-radius: 4px;
+  padding-right: 30px;
+  padding-left: 32px;
+  height: 46px;
+  color: var(--color-blue-whale);
+  background-color: white;
+  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.07);
+  min-width: 20vw;
+}
+
+/*  um zu verhindern, das sich die inputs nach innen verschieben wird das margin bei den letzten beiden jeweils links und rechts weg gemacht */
+.calculator--select:first-of-type {
+  margin-left: 0;
+}
+
+.calculator--select:last-of-type {
+  margin-right: 0;
+}
+
+.calc--result--wrapper {
+  display: flex;
+  align-items: center;
+  padding-bottom: 32px;
+}
+
+.calculator--result {
+  font-family: "Hind Vadodara", sans-serif;
+  font-size: clamp(1.8rem, 1vw, 4.5rem);
+  color: var(--color-blue-whale);
+  font-weight: 600;
+}
+
+#price {
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.booking--button {
+  background-color: #f32954;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-family: "Hind Vadodara", sans-serif;
+  font-weight: 600;
+  height: 46px;
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-left: 32px;
+}
+
+/* bei kleineren Bildsschirmen wird die anordnung auf vertigal geändert */
+@media only screen and (max-width: 970px) {
+  .calculator__container--wrapper {
+    flex-direction: column;
+  }
+
+  .calculator--select {
+    width: 343px;
+  }
+
+  .calc--result--wrapper {
+    flex-direction: column;
+  }
+
+  .booking--button {
+    margin: 0;
+    width: 343px;
+  }
+}
+
+/*-----footer-----*/
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.footer--text {
+  font-family: "Hind Vadodara", sans-serif;
+  color: var(--color-clay-gray);
+}
+
+.footer--text a {
+  color: var(--color-clay-gray);
+  text-decoration: underline;
+}
